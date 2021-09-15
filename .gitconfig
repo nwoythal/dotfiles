@@ -1,0 +1,27 @@
+[user]
+	name = Nate W
+	email = nwoythal@gmail.com
+[help]
+    autoCorrect = prompt
+[commit]
+	template = ~/.gittemplate.txt
+[core]
+	excludesFile = ~/.gitignore
+[pull]
+	rebase = interactive
+[merge]
+	tool = meld
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]
+	sslVerify = false
+[pager]
+	diff = true
+	branch = false
+    ls-remote = true
+
+[merge "ours"]
+    driver = true

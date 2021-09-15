@@ -1,0 +1,8 @@
+.vscode/*
+*.orig
+*.pyc
+node_modules
+*.swp
+.venv
+.viminfo
+.DS_Store
