@@ -67,8 +67,8 @@
         },
         "format": "{icon} {capacity}%",
         "format-icons": ["", "", "", "", ""],
-        "max-length": 6,
-        "min-length": 6
+        "max-length": 7,
+        "min-length": 7
     },
     "backlight": {
         "format": " {percent}%",
