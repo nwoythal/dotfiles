@@ -4,15 +4,16 @@
 alias dir="ls"
 alias docker=podman
 alias td="cd \$(mktemp -d)"
-alias l="podman run --rm -it ubuntu bash"
 alias grep=rg  # Requires ripgrep
 
 # Env vars
+export HISTFILE=~/.histfile
 export HISTSIZE=5000
 export HISTCONTROL=ignoredups
 export HISTIGNORE="&:history:ls*:w:exit:clear:[fb]g"
+export HIST_STAMPS="dd.mm.yyyy"
+export SAVEHIST=1000
 export EDITOR="vim"
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Attach to development tmux instance, or start it if it doesn't exist.
 function ws() {
@@ -48,7 +49,6 @@ function _repo_autocomplete() {
 }
 
 compctl -K _repo_autocomplete repo
-
 
 function ve() {
   if [[ -e ./.venv/bin/activate ]]; then
