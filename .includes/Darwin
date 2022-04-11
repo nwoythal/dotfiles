@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+alias find=gfind  # Requires findutils
+alias readlink=greadlink  # Requires coreutils
+
+function vs() {
+    open -a /Applications/Visual\ Studio\ Code.app "${1}"
+}
