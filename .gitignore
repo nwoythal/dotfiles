@@ -1,3 +1,10 @@
 .tmux/plugins/*
 .tmux/resurrect/*
 !.tmux/plugins/tpm
+
+!.config
+.config/*
+!.config/waybar
+!.config/sway
+!.config/alacritty
+!.config/fontconfig
