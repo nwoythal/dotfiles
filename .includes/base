@@ -1,40 +1,18 @@
 #!/bin/zsh
-# You'll need to `source includes` or append these to your shell RC file.
 
 # Quality of life fixes
 alias dir="ls"
-alias new_upstream="git push --set-upstream origin \$(git branch --show-current 2>/dev/null)"
 alias docker=podman
-alias td="cd $(mktemp -d)"
-alias trigger_ci="git commit --allow-empty -m 'Trigger CI' && git push"
-
-# Require brew packages
+alias td="cd \$(mktemp -d)"
+alias l="podman run --rm -it ubuntu bash"
 alias grep=rg  # Requires ripgrep
 
-# MacOS only
-alias find=gfind  # Requires findutils
-alias readlink=greadlink  # Requires coreutils
-
 # Env vars
-export GPG_TTY=$(tty)  # Needed for gopass to not break terminal instances when prompting for password and ^C is given
 export HISTSIZE=5000
 export HISTCONTROL=ignoredups
 export HISTIGNORE="&:history:ls*:w:exit:clear:[fb]g"
-export PDK_DISABLE_ANALYTICS=1
 export EDITOR="vim"
-# Needed for running ansible against Windows
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-# Java versions below subject to change. JDK 8 is needed for ant. Used in java_switch() below.
-export JAVA_HOME=/usr/local/opt/openjdk
-export JAVA_OTHER=/Library/Java/JavaVirtualMachines/amazon-corretto-7.jdk/Contents/Home/
-
-# Need $JAVA_HOME to be set to Java 8 specifically for Ant. Pretty much anything else will work for other projects.
-function java_switch() {
-  tmp=$JAVA_HOME
-  export JAVA_HOME=$JAVA_OTHER
-  export JAVA_OTHER=$tmp
-  echo "Java home is now ${JAVA_HOME}"
-}
 
 # Attach to development tmux instance, or start it if it doesn't exist.
 function ws() {
@@ -71,9 +49,6 @@ function _repo_autocomplete() {
 
 compctl -K _repo_autocomplete repo
 
-function vs() {
-  open -a /Applications/Visual\ Studio\ Code.app "${1}"
-}
 
 function ve() {
   if [[ -e ./.venv/bin/activate ]]; then

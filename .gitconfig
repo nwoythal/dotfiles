@@ -1,27 +1,32 @@
 [user]
-	name = Nate W
-	email = nwoythal@gmail.com
+    name = Nate W
+    email = nwoythal@gmail.com
 [help]
     autoCorrect = prompt
 [commit]
-	template = ~/.gittemplate.txt
+    template = ~/.gittemplate.txt
 [core]
-	excludesFile = ~/.gitignore
+    excludesFile = ~/.gitignore
 [pull]
-	rebase = interactive
+    rebase = interactive
 [merge]
-	tool = meld
+    tool = meld
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [http]
-	sslVerify = false
+    sslVerify = false
 [pager]
-	diff = true
-	branch = false
+    diff = true
+    branch = false
     ls-remote = true
-
 [merge "ours"]
     driver = true
+
+[alias]
+    fuckup = !git commit -am 'fix fuckup' && git rebase -i HEAD~2
+    nu = !git push --set-upstream origin $(git branch --show-current 2>/dev/null)
+    pristine = clean -ffdx
+    co = checkout
