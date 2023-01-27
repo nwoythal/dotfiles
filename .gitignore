@@ -8,3 +8,4 @@
 !.config/sway
 !.config/alacritty
 !.config/fontconfig
+!.config/tmux
