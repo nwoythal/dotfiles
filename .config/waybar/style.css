@@ -62,6 +62,7 @@
 /* The whole bar */
 #waybar {
     background: @bg;
+    border-radius: 0px;
     color: @light;
     font-family: "Cantarell", "Font Awesome 5 Pro";
     font-size: 12px;
@@ -78,11 +79,11 @@
 #network,
 #temperature,
 #custom-alsa,
-#custom-pipewire,
 #custom-weather,
 #custom-gpu,
 #tray,
 #backlight,
+#wireplumber,
 #language {
     padding-left: 0.6em;
     padding-right: 0.6em;
@@ -120,6 +121,7 @@
 #memory.warning,
 #cpu.warning,
 #temperature.warning,
+#wireplumber.muted,
 #battery.warning {
     background: @warning;
     color: @nord_dark_font;
@@ -184,12 +186,6 @@
 }
 
 #custom-weather {
-    background: @mode;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-
-#custom-pipewire {
     background: @mode;
     font-weight: bold;
     padding: 0 0.6em;
@@ -276,21 +272,18 @@
     background: @mode;
 }
 
-#pipewire { /* Unsused but kept for those who needs it */
+#wireplumber { /* Unsused but kept for those who needs it */
     background: @nord_bg_blue;
     color: #D8DEE9;
 }
 
-#pipewire.muted {
+/*
+#wireplumber.muted {
     background: #BF616A;
-    color: #BF616A;
-    /* No styles */
-}
-#pipewire.source-muted {
-    background: #D08770;
     color: #D8DEE9;
-    /* No styles */
 }
+*/
+
 #tray {
     background: #434C5E;
 }
