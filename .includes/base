@@ -5,6 +5,8 @@ alias dir="ls"
 alias docker=podman
 alias td="cd \$(mktemp -d)"
 alias grep=rg  # Requires ripgrep
+alias jq=gojq  # Requires gojq
+alias python=python3
 
 # Env vars
 export HISTFILE=~/.histfile
@@ -14,10 +16,13 @@ export HISTIGNORE="&:history:ls*:w:exit:clear:[fb]g"
 export HIST_STAMPS="dd.mm.yyyy"
 export SAVEHIST=1000
 export EDITOR="vim"
+export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config/"
+export GOPATH="$HOME/.local/go"
 
 # Attach to development tmux instance, or start it if it doesn't exist.
 function ws() {
-  if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
+  if [ -n "$TMUX" ]; then
     echo "You are already in your workspace."
   else
     if tmux ls | grep workspace ; then
@@ -44,17 +49,17 @@ function repo() {
   cd "${HOME}/Repositories/${1}" || return
 }
 
-function _repo_autocomplete() {
-  reply=( $(ls ~/Repositories) )
-}
-
-compctl -K _repo_autocomplete repo
-
+# Create venv in cwd, or activate if it exists
 function ve() {
   if [[ -e ./.venv/bin/activate ]]; then
       . ./.venv/bin/activate
   else
       python -m venv .venv && . ./.venv/bin/activate
   fi
+}
+
+# Completions
+function _repo_autocomplete() {
+  reply=( $(ls ~/Repositories) )
 }
 
