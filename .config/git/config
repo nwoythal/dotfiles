@@ -4,9 +4,9 @@
 [help]
     autoCorrect = prompt
 [commit]
-    template = ~/.gittemplate.txt
+    template = ~/.config/git/gittemplate.txt
 [core]
-    excludesFile = ~/.gitignore
+    excludesFile = ~/.config/git/gitignore
 [pull]
     rebase = interactive
 [merge]

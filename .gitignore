@@ -9,3 +9,5 @@
 !.config/alacritty
 !.config/fontconfig
 !.config/tmux
+!.config/git
+!.config/nvim
