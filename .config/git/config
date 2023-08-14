@@ -28,5 +28,10 @@
 [alias]
     fuckup = !git commit -am 'fix fuckup' && git rebase -i HEAD~2
     nu = !git push --set-upstream origin $(git branch --show-current 2>/dev/null)
-    pristine = clean -ffdx
+    pristine = !git clean -ffdx && git reset --hard HEAD
     co = checkout
+    move-ci = commit --allow-empty -m 'Move HEAD to trigger CI'
+    tree = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    clickable = !git remote -v | awk '{print $2}' | tr ':' '/' | rg '(https?://)?(git@)?github.int.midasplayer.com' --replace https://github.int.midasplayer.com | sort -u
+[init]
+	defaultBranch = main
