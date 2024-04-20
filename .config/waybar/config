@@ -3,9 +3,9 @@
     "position": "top",
 
     // Choose the order of the modules
-    "modules-left": [ "clock", "custom/weather", "bluetooth", "idle_inhibitor"],
+    "modules-left": [ "clock", "custom/weather", "bluetooth", "battery", "idle_inhibitor"],
     "modules-center": [ "sway/workspaces" ],
-    "modules-right": [ "battery", "cpu", "memory", "wireplumber", "backlight", "network", "tray"],
+    "modules-right": [ "cpu", "memory", "wireplumber", "backlight", "network", "tray"],
 
     // Modules configuration
     "bluetooth": {
@@ -26,7 +26,7 @@
         "tooltip": "true"
     },
     "tray": {
-        //"icon-size": 11,
+        "icon-size": 11,
         "spacing": 5
     },
     "clock": {
